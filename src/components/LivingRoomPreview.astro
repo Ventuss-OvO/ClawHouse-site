@@ -1,0 +1,98 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+const furniture = [
+  { emoji: "🛋️", name: "Couch", meaning: "Resting between tasks", position: "left" },
+  { emoji: "🖥️", name: "Desk", meaning: "Busy working on something", position: "center" },
+  { emoji: "🚪", name: "Door", meaning: "Heading out (Gmail, Slack, GitHub...)", position: "right" },
+  { emoji: "💡", name: "Lamp", meaning: "Dims when sleeping, brightens when busy", position: "left" },
+  { emoji: "📬", name: "Mailbox", meaning: "Email deliveries land here", position: "right" },
+];
+---
+
+<section class="py-20 px-6 bg-erased/30">
+  <SectionTitle subtitle="Each piece of furniture actually means something">
+    Inside the Living Room
+  </SectionTitle>
+
+  <div class="max-w-5xl mx-auto">
+    <!-- Scene illustration -->
+    <div class="relative bg-white border-[3px] border-pencil p-8 md:p-12 mb-12 shadow-lg" style="border-radius: 20px 255px 20px 225px / 225px 20px 255px 20px;">
+      <!-- Scene content -->
+      <div class="flex flex-col items-center gap-6">
+        <!-- Room sketch -->
+        <div class="w-full max-w-lg aspect-[16/9] border-2 border-dashed border-pencil/30 bg-paper flex items-center justify-center relative" style="border-radius: 12px 8px 14px 6px;">
+          <!-- Wall -->
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-pen/5 to-transparent" style="border-radius: inherit;"></div>
+
+          <!-- Floor -->
+          <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-sticky/20 border-t-2 border-pencil/20"></div>
+
+          <!-- Furniture items positioned in the room -->
+          <div class="relative z-10 flex items-end justify-around w-full px-8 pb-4">
+            <div class="flex flex-col items-center gap-1 -rotate-2">
+              <span class="text-3xl md:text-4xl">🛋️</span>
+              <span class="text-xs font-heading text-pencil/50">couch</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <span class="text-3xl md:text-4xl">💡</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 mb-2">
+              <span class="text-3xl md:text-4xl">🖥️</span>
+              <span class="text-xs font-heading text-pencil/50">desk</span>
+              <!-- Claw at desk -->
+              <div class="absolute -top-6">
+                <span class="text-2xl">🦀</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center gap-1 rotate-1">
+              <span class="text-3xl md:text-4xl">📬</span>
+              <span class="text-xs font-heading text-pencil/50">mailbox</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 rotate-2">
+              <span class="text-3xl md:text-4xl">🚪</span>
+              <span class="text-xs font-heading text-pencil/50">door</span>
+            </div>
+          </div>
+
+          <!-- Window -->
+          <div class="absolute top-4 right-6 w-12 h-10 border-2 border-pencil/30 bg-blue-pen/10" style="border-radius: 6px 8px 4px 6px;">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-sm">☁️</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="font-heading text-xl text-pencil/50 italic">~ a typical afternoon in the living room ~</p>
+      </div>
+
+      <!-- Corner frame marks -->
+      <svg class="absolute top-3 left-3 w-6 h-6 text-pencil/30" viewBox="0 0 24 24" fill="none">
+        <path d="M2 8 L2 2 L8 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="absolute top-3 right-3 w-6 h-6 text-pencil/30" viewBox="0 0 24 24" fill="none">
+        <path d="M16 2 L22 2 L22 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="absolute bottom-3 left-3 w-6 h-6 text-pencil/30" viewBox="0 0 24 24" fill="none">
+        <path d="M2 16 L2 22 L8 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="absolute bottom-3 right-3 w-6 h-6 text-pencil/30" viewBox="0 0 24 24" fill="none">
+        <path d="M16 22 L22 22 L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Furniture meaning cards -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      {furniture.map((item, i) => (
+        <div class:list={[
+          "text-center p-4 border-2 border-pencil/40 bg-white wobbly-sm",
+          i % 2 === 0 ? "-rotate-1" : "rotate-1",
+        ]}>
+          <span class="text-2xl block mb-1">{item.emoji}</span>
+          <p class="font-heading text-lg">{item.name}</p>
+          <p class="text-sm text-pencil/60">{item.meaning}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

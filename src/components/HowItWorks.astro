@@ -1,0 +1,66 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import { Terminal, Smartphone, Armchair } from "lucide-astro";
+
+const steps = [
+  {
+    num: "1",
+    icon: Terminal,
+    title: "Install the Plugin",
+    description: "One command. That's it. Your OpenClaw agent gets a new channel for ClawHouse to connect to.",
+    code: "openclaw plugins install clawhouse",
+  },
+  {
+    num: "2",
+    icon: Smartphone,
+    title: "Pair Your iPhone",
+    description: "Open the app, paste your pairing token, tap connect. Three-step handshake — takes about five seconds.",
+    code: null,
+  },
+  {
+    num: "3",
+    icon: Armchair,
+    title: "Watch Your Claw",
+    description: "That's it. Your agent now has a little living room on your phone. Watch it work, send it messages, get pinged when it's done.",
+    code: null,
+  },
+];
+---
+
+<section id="how-it-works" class="py-20 px-6">
+  <SectionTitle subtitle="From zero to claw-watching in under a minute">
+    How It Works
+  </SectionTitle>
+
+  <div class="max-w-3xl mx-auto relative">
+    <!-- Squiggly connecting line (desktop) -->
+    <svg class="hidden md:block absolute left-[39px] top-24 w-4 h-[calc(100%-120px)] text-pencil/20" viewBox="0 0 16 400" fill="none" preserveAspectRatio="none">
+      <path d="M8 0 C12 20, 4 40, 8 60 C12 80, 4 100, 8 120 C12 140, 4 160, 8 180 C12 200, 4 220, 8 240 C12 260, 4 280, 8 300 C12 320, 4 340, 8 360 C12 380, 6 395, 8 400" stroke="currentColor" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" fill="none"/>
+    </svg>
+
+    <div class="space-y-12">
+      {steps.map((step) => (
+        <div class="relative flex gap-6 items-start">
+          <!-- Step number circle -->
+          <div class="flex-shrink-0 relative z-10 w-20 h-20 bg-white border-[3px] border-pencil shadow-md flex items-center justify-center wobbly-circle">
+            <span class="font-heading text-3xl text-red-marker">{step.num}</span>
+          </div>
+
+          <!-- Step content -->
+          <div class="flex-1 pt-2">
+            <div class="flex items-center gap-2 mb-2">
+              <step.icon size={22} strokeWidth={2.5} class="text-blue-pen" />
+              <h3 class="font-heading text-2xl md:text-3xl">{step.title}</h3>
+            </div>
+            <p class="text-lg text-pencil/70 mb-3">{step.description}</p>
+            {step.code && (
+              <div class="inline-block bg-pencil text-paper px-4 py-2 font-mono text-base border-2 border-pencil shadow-sm wobbly-sm">
+                <span class="text-red-marker/80">$</span> {step.code}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

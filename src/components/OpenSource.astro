@@ -1,0 +1,67 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import WobblyCard from "./WobblyCard.astro";
+import { Github, Code, Smartphone } from "lucide-astro";
+---
+
+<section class="py-20 px-6">
+  <SectionTitle subtitle="ClawHouse is open source. Poke around, break things, make it yours.">
+    Built in the Open
+  </SectionTitle>
+
+  <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+    <!-- Plugin repo -->
+    <a
+      href="https://github.com/Ventuss-OvO/ClawHouse"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block group"
+    >
+      <WobblyCard decoration="tape" class="h-full transition-shadow duration-100 group-hover:shadow-md">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 border-2 border-pencil bg-pencil text-paper flex items-center justify-center wobbly-circle">
+            <Code size={20} strokeWidth={2.5} />
+          </div>
+          <div>
+            <h3 class="font-heading text-xl">ClawHouse Plugin</h3>
+            <p class="text-sm text-pencil/50">TypeScript</p>
+          </div>
+        </div>
+        <p class="text-pencil/70 mb-4">The OpenClaw gateway plugin. Registers the channel, handles RPC, manages push notifications.</p>
+        <div class="flex items-center gap-2 text-blue-pen font-heading">
+          <Github size={16} strokeWidth={2.5} />
+          <span>Ventuss-OvO/ClawHouse</span>
+        </div>
+      </WobblyCard>
+    </a>
+
+    <!-- iOS repo -->
+    <a
+      href="https://github.com/Ventuss-OvO/ClawHouse-app"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block group"
+    >
+      <WobblyCard decoration="tape" class="h-full transition-shadow duration-100 group-hover:shadow-md">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 border-2 border-pencil bg-blue-pen text-paper flex items-center justify-center wobbly-circle">
+            <Smartphone size={20} strokeWidth={2.5} />
+          </div>
+          <div>
+            <h3 class="font-heading text-xl">ClawHouse App</h3>
+            <p class="text-sm text-pencil/50">Swift / SwiftUI</p>
+          </div>
+        </div>
+        <p class="text-pencil/70 mb-4">The iOS companion. SwiftUI + SpriteKit living room, SwiftData persistence, real-time WebSocket connection.</p>
+        <div class="flex items-center gap-2 text-blue-pen font-heading">
+          <Github size={16} strokeWidth={2.5} />
+          <span>Ventuss-OvO/ClawHouse-app</span>
+        </div>
+      </WobblyCard>
+    </a>
+  </div>
+
+  <p class="text-center mt-10 font-heading text-xl text-pencil/50 italic">
+    PRs welcome. Issues too. We don't bite.
+  </p>
+</section>

@@ -1,0 +1,52 @@
+---
+import { Github, Twitter, Mail } from "lucide-astro";
+---
+
+<footer class="relative py-12 px-6 border-t-[3px] border-dashed border-pencil/20">
+  <!-- Wavy separator -->
+  <svg class="absolute -top-3 left-0 w-full h-6 text-paper" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none">
+    <path d="M0 12 C100 4, 200 20, 300 12 C400 4, 500 20, 600 12 C700 4, 800 20, 900 12 C1000 4, 1100 20, 1200 12" stroke="#e5e0d8" stroke-width="3" fill="none"/>
+  </svg>
+
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <!-- Left: Brand -->
+    <div class="text-center md:text-left">
+      <p class="font-heading text-2xl text-pencil mb-1">ClawHouse</p>
+      <p class="text-pencil/50">Made by <a href="https://github.com/Ventuss-OvO" target="_blank" rel="noopener noreferrer" class="text-blue-pen hover:line-through transition-all">Ventuss</a></p>
+    </div>
+
+    <!-- Center: Links -->
+    <div class="flex items-center gap-6">
+      <a
+        href="https://github.com/Ventuss-OvO/ClawHouse"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-10 h-10 border-2 border-pencil/40 bg-white flex items-center justify-center wobbly-circle hover:bg-pencil hover:text-paper transition-colors"
+        aria-label="GitHub"
+      >
+        <Github size={18} strokeWidth={2.5} />
+      </a>
+      <a
+        href="https://twitter.com/ventuss"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-10 h-10 border-2 border-pencil/40 bg-white flex items-center justify-center wobbly-circle hover:bg-blue-pen hover:text-paper transition-colors"
+        aria-label="Twitter"
+      >
+        <Twitter size={18} strokeWidth={2.5} />
+      </a>
+      <a
+        href="mailto:hello@clawhouse.dev"
+        class="w-10 h-10 border-2 border-pencil/40 bg-white flex items-center justify-center wobbly-circle hover:bg-red-marker hover:text-paper transition-colors"
+        aria-label="Email"
+      >
+        <Mail size={18} strokeWidth={2.5} />
+      </a>
+    </div>
+
+    <!-- Right: Copyright -->
+    <p class="text-sm text-pencil/40 font-body">
+      &copy; {new Date().getFullYear()} ClawHouse. Open source under MIT.
+    </p>
+  </div>
+</footer>

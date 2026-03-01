@@ -1,0 +1,78 @@
+---
+import WobblyButton from "./WobblyButton.astro";
+import { Github, Download } from "lucide-astro";
+---
+
+<section class="relative py-20 md:py-28 px-6 overflow-hidden">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <!-- Left: Text -->
+    <div class="relative z-10">
+      <h1 class="text-5xl md:text-6xl font-heading text-pencil leading-tight mb-6">
+        Your AI Agent<br />
+        Deserves a
+        <span class="relative inline-block">
+          Home
+          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8 C30 2, 60 12, 100 6 C140 0, 170 10, 198 4" stroke="#ff4d4d" stroke-width="3" stroke-linecap="round" fill="none"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-pencil/70 mb-8 max-w-lg">
+        An iOS app that gives your OpenClaw agent a tiny living room. It sits at its desk, walks out the door for tasks, and naps on the couch. You just watch.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <WobblyButton href="https://testflight.apple.com/join/clawhouse" variant="primary">
+          <span class="flex items-center gap-2">
+            <Download size={20} strokeWidth={2.5} />
+            Get on TestFlight
+          </span>
+        </WobblyButton>
+        <WobblyButton href="https://github.com/Ventuss-OvO/ClawHouse" variant="secondary">
+          <span class="flex items-center gap-2">
+            <Github size={20} strokeWidth={2.5} />
+            View Source
+          </span>
+        </WobblyButton>
+      </div>
+
+      <!-- Hand-drawn arrow pointing to CTA (desktop) -->
+      <svg class="hidden md:block absolute -bottom-8 left-48 w-24 h-24 text-pencil/40" viewBox="0 0 100 100" fill="none">
+        <path d="M10 80 C30 60, 50 40, 70 30 C80 25, 85 28, 90 20" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round" fill="none"/>
+        <path d="M82 18 L92 20 L86 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Right: App Preview Illustration -->
+    <div class="relative flex justify-center">
+      <!-- Phone frame -->
+      <div class="relative w-64 md:w-72 bg-white border-[3px] border-pencil shadow-lg p-4 rotate-2" style="border-radius: 30px;">
+        <!-- Screen content - Living room sketch -->
+        <div class="bg-paper border-2 border-pencil/30 aspect-[9/16] flex flex-col items-center justify-center gap-4 p-4" style="border-radius: 20px;">
+          <!-- Roof -->
+          <svg class="w-32" viewBox="0 0 120 40" fill="none">
+            <path d="M10 38 L60 5 L110 38" stroke="#2d2d2d" stroke-width="3" stroke-linecap="round" fill="none"/>
+          </svg>
+          <!-- House body -->
+          <div class="w-28 h-20 border-[3px] border-pencil bg-sticky/50 flex items-center justify-center" style="border-radius: 8px 12px 6px 10px;">
+            <!-- Claw character -->
+            <div class="relative">
+              <div class="w-12 h-12 bg-red-marker/20 border-2 border-pencil flex items-center justify-center wobbly-circle">
+                <span class="text-2xl">🦀</span>
+              </div>
+            </div>
+          </div>
+          <!-- Ground line -->
+          <svg class="w-40" viewBox="0 0 160 8" fill="none">
+            <path d="M0 4 C20 2, 40 6, 60 4 C80 2, 100 6, 120 4 C140 2, 155 5, 160 4" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+          <p class="font-heading text-sm text-pencil/60 mt-2">~ claw is working ~</p>
+        </div>
+      </div>
+
+      <!-- Bouncing decorative circle (desktop) -->
+      <div class="hidden md:block absolute -top-4 -right-4 w-16 h-16 bg-sticky border-2 border-pencil wobbly-circle animate-bounce" style="animation-duration: 3s;">
+        <span class="flex items-center justify-center h-full text-2xl">✨</span>
+      </div>
+    </div>
+  </div>
+</section>

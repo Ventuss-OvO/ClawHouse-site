@@ -1,0 +1,35 @@
+---
+interface Props {
+  decoration?: "tape" | "tack" | "none";
+  variant?: "default" | "sticky" | "feature";
+  rotate?: string;
+  class?: string;
+}
+
+const {
+  decoration = "none",
+  variant = "default",
+  rotate = "",
+  class: className = "",
+} = Astro.props;
+
+const bgMap = {
+  default: "bg-white",
+  sticky: "bg-sticky",
+  feature: "bg-sticky",
+};
+
+const decorClass = decoration !== "none" ? decoration : "";
+---
+
+<div
+  class:list={[
+    "relative border-2 border-pencil p-6 md:p-8 wobbly-md shadow-subtle transition-transform duration-100 hover:rotate-1",
+    bgMap[variant],
+    decorClass,
+    rotate,
+    className,
+  ]}
+>
+  <slot />
+</div>

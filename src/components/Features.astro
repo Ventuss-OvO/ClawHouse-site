@@ -1,0 +1,79 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import WobblyCard from "./WobblyCard.astro";
+import { Home, Eye, MessageCircle, Mic, Bell, Package } from "lucide-astro";
+
+const features = [
+  {
+    icon: "Home",
+    title: "Living Room",
+    description: "Your agent gets its own room. Desk to work at, couch to rest on, door to head out through. It feels like a tiny apartment.",
+    rotate: "-rotate-1",
+    decoration: "tack" as const,
+  },
+  {
+    icon: "Eye",
+    title: "Real-time Status",
+    description: "You can always tell what your agent is up to. Working at the desk, heading out for emails, checking Slack — it's all visible.",
+    rotate: "rotate-1",
+    decoration: "tape" as const,
+  },
+  {
+    icon: "MessageCircle",
+    title: "Chat Anytime",
+    description: "Send messages to your agent right from your phone. Markdown rendering, typing indicators, the works.",
+    rotate: "-rotate-2",
+    decoration: "tack" as const,
+  },
+  {
+    icon: "Mic",
+    title: "Voice Input",
+    description: "Too lazy to type? Just hold the mic button and talk. On-device speech recognition turns your words into text.",
+    rotate: "rotate-2",
+    decoration: "tape" as const,
+  },
+  {
+    icon: "Bell",
+    title: "Push Notifications",
+    description: "Put your phone down. When your agent finishes a task, you'll get a tap on the shoulder via APNs.",
+    rotate: "rotate-1",
+    decoration: "tack" as const,
+  },
+  {
+    icon: "Package",
+    title: "Delivery Panels",
+    description: "Emails land in the mailbox, meetings show on the calendar, search results fill the notebook. Each tool has its own spot.",
+    rotate: "-rotate-1",
+    decoration: "tape" as const,
+  },
+];
+
+const iconMap: Record<string, any> = { Home, Eye, MessageCircle, Mic, Bell, Package };
+---
+
+<section id="features" class="py-20 px-6">
+  <SectionTitle subtitle="Here's what you get when you give your agent a room">
+    What's Inside
+  </SectionTitle>
+
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {features.map((feature) => {
+      const IconComponent = iconMap[feature.icon];
+      return (
+        <WobblyCard
+          variant="sticky"
+          decoration={feature.decoration}
+          rotate={feature.rotate}
+        >
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 border-2 border-pencil bg-white flex items-center justify-center wobbly-circle">
+              <IconComponent size={20} strokeWidth={2.5} />
+            </div>
+            <h3 class="font-heading text-xl md:text-2xl">{feature.title}</h3>
+          </div>
+          <p class="text-pencil/70 text-lg">{feature.description}</p>
+        </WobblyCard>
+      );
+    })}
+  </div>
+</section>
